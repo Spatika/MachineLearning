@@ -20,7 +20,12 @@ S = zeros(n);
 %       number of examples).
 %
 
+%this is covariance
+sigma = (1 ./ m) * (X'*X) ; 
 
+
+%run SVD on covariance, U is principal components, S is diagonal matrix
+[U, S, V] = svd(sigma) ; 
 
 
 

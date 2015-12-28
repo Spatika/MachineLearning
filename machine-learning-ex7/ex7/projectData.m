@@ -18,7 +18,12 @@ Z = zeros(size(X, 1), K);
 %                    projection_k = x' * U(:, k);
 %
 
+%first K columns 
+U_reduce = U(: , 1:K) ;
 
+
+%vectorized projection as given above, instead of using for loop
+Z = X * U_reduce ;
 
 
 % =============================================================
