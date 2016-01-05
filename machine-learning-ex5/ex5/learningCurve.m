@@ -56,7 +56,19 @@ error_val   = zeros(m, 1);
 
 
 
-
+for i = 1:m
+  
+  %run training to get theta
+   theta = trainLinearReg(X(1:i, :), y(1:i), lambda);
+  
+  [J, grad] = linearRegCostFunction(X(1:i, :), y(1:i), theta, 0) ; 
+  error_train(i) = J ; 
+  
+  [J, grad] = linearRegCostFunction(Xval, yval, theta, 0) ;
+  
+  error_val(i) = J ; 
+  
+end
 
 
 % -------------------------------------------------------------

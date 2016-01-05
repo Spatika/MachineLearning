@@ -19,15 +19,19 @@ grad = zeros(size(theta));
 %               You should set J to the cost and grad to the gradient.
 %
 
+h = X*theta ; 
+
+%regularize theta other than theta(1), i.e. from theta(2 : ,) onwards
+
+no_theta0 = theta(2:size(theta));
+
+theta_reg = [0; no_theta0];
+%each column represents theta vector for a particular instance
 
 
 
-
-
-
-
-
-
+J = ((1 / (2 .* m)) .* sum((h - y) .^ 2)) + ((lambda / (2 .* m)) * (theta_reg'*theta_reg)) ; 
+grad = (1/m) * ((X'*(h-y))   + (lambda*theta_reg)) ;
 
 
 % =========================================================================
